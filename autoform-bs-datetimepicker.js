@@ -16,7 +16,7 @@ AutoForm.addInputType("bootstrap-datetimepicker", {
     return val;
   },
   valueOut: function () {
-    var m = this.data("DateTimePicker").getDate();
+    var m = this.data("DateTimePicker").date();
     
     if (!m) {
       return m;
@@ -99,9 +99,9 @@ Template.afBootstrapDateTimePicker.rendered = function () {
 
     // set field value
     if (data.value instanceof Date) {
-      dtp.setDate(data.value);
+      dtp.date(data.value);
     } else {
-      dtp.setDate(); // clear
+      dtp.date(null); // clear
     }
 
     // set start date if there's a min in the schema
@@ -111,7 +111,7 @@ Template.afBootstrapDateTimePicker.rendered = function () {
 
     // set end date if there's a max in the schema
     if (data.max instanceof Date) {
-      dtp.setMaxDate(data.max);
+      dtp.maxDate(data.max);
     }
   });
 
